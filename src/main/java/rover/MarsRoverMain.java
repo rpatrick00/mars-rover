@@ -22,7 +22,7 @@ import rover.parser.RoverInputTranslator;
 public final class MarsRoverMain {
     private static final String APP_NAME = "java -jar mars-rover.jar";
     private static final String HELP_HEADER = "";
-    private static final String HELP_FOOTER = "\nPlease report any problems or questions at https://github.com/rpatrick00/mars-rover/issues";
+    private static final String HELP_FOOTER = "";
 
     private String fileName;
 
