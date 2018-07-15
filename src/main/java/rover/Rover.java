@@ -69,6 +69,7 @@ public class Rover {
      *
      * @return the new position
      * @throws OffPlateauException if the new position is off the map to one of the negative sides
+     * @throws SpaceAlreadyOccupiedException if the space ahead is already occupied by another rover
      */
     public Coordinate move() throws OffPlateauException, SpaceAlreadyOccupiedException {
         Coordinate proposed = projectMove();
