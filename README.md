@@ -1,8 +1,8 @@
-#Mars Rover Coding Challenge
+# Mars Rover Coding Challenge
 
 This project contains my solution for the Mars Rover coding challenge.
 
-##How to Build
+## How to Build
 
 This project requires Java and a working Maven configuration to build.  Once you have installed and configured Maven, just clone the Git repository and run "mvn package" to generate the uber executable jar with all of the dependencies included.
 
