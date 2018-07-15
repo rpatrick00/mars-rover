@@ -8,7 +8,20 @@ This project requires Java and a working Maven configuration to build.  Once you
 
 ## How to Run
 
-Once the mars-rover/target/mars-rover.jar file has been built, do the following:
+Once the mars-rover/target/mars-rover.jar file has been built, just run it:
+
+```text
+java -jar target/mars-rover.jar
+```
+
+This causes the application to print its help text that looks like this:
+
+```text
+usage: java -jar mars-rover.jar -f <INPUT_FILE>
+ -f,--input-file <INPUT_FILE>   the input file name
+```
+
+Now, do the following steps to run the application with actual input:
 
 1. Create an input file that matches the input definition.  For example:        
 

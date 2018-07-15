@@ -38,7 +38,7 @@ public final class MarsRoverMain {
         Options options = getCommandLineOptions();
         if (args.length == 0) {
             printHelp(options);
-            System.exit(1);
+            System.exit(0);
         }
 
         final CommandLineParser cmdLineParser = new DefaultParser();
@@ -50,8 +50,9 @@ public final class MarsRoverMain {
             printHelp(options);
             System.exit(1);
         }
-        String fileName = cmdLine.getOptionValue("f");
 
+
+        String fileName = cmdLine.getOptionValue("f");
         MarsRoverMain me = new MarsRoverMain(fileName);
         List<String> results = null;
         try {
@@ -95,7 +96,6 @@ public final class MarsRoverMain {
                                 .hasArg()
                                 .argName("INPUT_FILE").build();
         options.addOption(fileOption);
-        options.addOption("h", "help", false, "displays help information");
         return options;
     }
 
