@@ -5,7 +5,7 @@ input
    ;
 
 size
-   : INTEGER SPACE INTEGER NEWLINE
+   : INTEGER SPACE INTEGER WS? NEWLINE
    ;
 
 roverData
