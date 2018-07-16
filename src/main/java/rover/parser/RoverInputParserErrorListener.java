@@ -13,12 +13,21 @@ import org.antlr.v4.runtime.atn.ATNConfigSet;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.Interval;
 
+/**
+ * This class implements the Antlr 4 DiagnosticErrorListener interface to capture parsing errors and warnings.
+ */
 public class RoverInputParserErrorListener extends DiagnosticErrorListener {
 
     private String fileName;
     private List<String> errors;
     private List<String> warnings;
 
+    /**
+     * The constructor.
+     *
+     * @param fileName the name of the input file being parsed
+     * @param exactOnly whether or not the listener should only report exact ambiguities or not
+     */
     public RoverInputParserErrorListener(String fileName, boolean exactOnly) {
         super(exactOnly);
         this.fileName = fileName;

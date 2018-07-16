@@ -25,6 +25,7 @@ public final class MarsRoverMain {
 
     private String fileName;
 
+    // private constructor made package protected to support unit testing
     MarsRoverMain(String fileName) {
         this.fileName = fileName;
     }
@@ -99,6 +100,7 @@ public final class MarsRoverMain {
         return options;
     }
 
+    // private method made package protected to support unit testing
     List<String> execute() throws OffPlateauException, ParserException, SpaceAlreadyOccupiedException {
         RoverInputTranslator translator = new RoverInputTranslator(fileName);
         RoverInputData inputData = translator.parse();

@@ -15,12 +15,21 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import rover.Command;
 
+/**
+ * This class presents the public interface to the input file parser.
+ */
 public class RoverInputTranslator extends RoverInputBaseListener {
 
     private File inputFile;
     private RoverInputData result;
     private RoverInputData.RoverData currentRoverData;
 
+    /**
+     * The constructor.
+     *
+     * @param fileName the name of the fule to be parsed.
+     * @throws IllegalArgumentException if the file name is not a valid, existing file
+     */
     public RoverInputTranslator(String fileName) {
         if (fileName == null || fileName.isEmpty()) {
             throw new IllegalArgumentException("Input file name must not be empty");
@@ -35,6 +44,11 @@ public class RoverInputTranslator extends RoverInputBaseListener {
         this.inputFile = file;
     }
 
+    /**
+     * Entering the size grammar element callback.
+     *
+     * @param ctx the parser context
+     */
     @Override
     public void enterSize(RoverInputParser.SizeContext ctx) {
         int x = Integer.valueOf(ctx.INTEGER(0).getText());
@@ -42,6 +56,11 @@ public class RoverInputTranslator extends RoverInputBaseListener {
         result = new RoverInputData(x, y);
     }
 
+    /**
+     * Entering the start grammar element callback.
+     *
+     * @param ctx the parser context
+     */
     @Override
     public void enterStart(RoverInputParser.StartContext ctx) {
         int x = Integer.valueOf(ctx.INTEGER(0).getText());
@@ -50,6 +69,11 @@ public class RoverInputTranslator extends RoverInputBaseListener {
         currentRoverData = new RoverInputData.RoverData(x, y, directionName);
     }
 
+    /**
+     * Entering the commands grammar element callback.
+     *
+     * @param ctx the parser context
+     */
     @Override
     public void enterCommands(RoverInputParser.CommandsContext ctx) {
         List<TerminalNode> commandNodes = ctx.COMMAND();
@@ -63,7 +87,12 @@ public class RoverInputTranslator extends RoverInputBaseListener {
         result.addRoverData(currentRoverData);
     }
 
-
+    /**
+     * Parse the file for this translator.
+     *
+     * @return the data object containing the parsed data
+     * @throws ParserException if an error occurs during parsing
+     */
     public RoverInputData parse() throws ParserException {
         RoverInputParserErrorListener errorListener =
             new RoverInputParserErrorListener(inputFile.getAbsolutePath(), false);
