@@ -27,7 +27,7 @@ public class RoverInputTranslator extends RoverInputBaseListener {
     /**
      * The constructor.
      *
-     * @param fileName the name of the fule to be parsed.
+     * @param fileName the name of the file to be parsed.
      * @throws IllegalArgumentException if the file name is not a valid, existing file
      */
     public RoverInputTranslator(String fileName) {
