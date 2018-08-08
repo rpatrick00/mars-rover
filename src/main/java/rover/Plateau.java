@@ -33,14 +33,34 @@ public class Plateau {
         rovers = new ArrayList<>();
     }
 
+    /**
+     * Get the X coordinate boundary of the plateau.
+     *
+     * @return the X coordinate boundary of the plateau
+     */
     public int getXTopRight() {
         return xTopRight;
     }
 
+    /**
+     * Get the Y coordinate boundary of the plateau.
+     *
+     * @return the Y coordinate boundary of the plateau
+     */
     public int getYTopRight() {
         return yTopRight;
     }
 
+    /**
+     * Add a rover at the specified location and heading.
+     *
+     * @param x the X position of the new rover
+     * @param y the Y position of the new rover
+     * @param direction the heading of the new rover
+     * @return the new Rover
+     * @throws OffPlateauException if the position specified is not on the plateau
+     * @throws SpaceAlreadyOccupiedException if there is already a rover at the specified position
+     */
     public Rover addRover(int x, int y, Direction direction) throws OffPlateauException, SpaceAlreadyOccupiedException {
         if (!isOnPlateau(x, y)) {
             throw new OffPlateauException(String.format(OFF_PLATEAU_ERROR_MESSAGE_TEMPLATE, x, y, xTopRight, yTopRight));
@@ -56,14 +76,33 @@ public class Plateau {
         return rover;
     }
 
+    /**
+     * Is the specified coordinate on the plateau?
+     *
+     * @param position the coordinate
+     * @return true if the coordinate is on the plateau, false otherwise
+     */
     public boolean isOnPlateau(Coordinate position) {
         return position != null && isOnPlateau(position.getX(), position.getY());
     }
 
+    /**
+     * Is the specified coordinate on the plateau?
+     *
+     * @param x the X position of the coordinate
+     * @param y the Y position of the coordinate
+     * @return true if the coordinate is on the plateau, false otherwise
+     */
     public boolean isOnPlateau(int x, int y) {
         return x >= 0 && x <= xTopRight && y >= 0 && y <= yTopRight;
     }
 
+    /**
+     * Is the specified coordinate already occupied by another rover?
+     *
+     * @param position the coordinate
+     * @return true if the coordinate is already occupied, false otherwise
+     */
     public boolean isSpaceOccupied(Coordinate position) {
         for (Rover rover : rovers) {
             if (rover.getCurrentPosition().equals(position)) {

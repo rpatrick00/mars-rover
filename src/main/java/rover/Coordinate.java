@@ -30,7 +30,6 @@ public class Coordinate {
      * @return the X axis value
      */
     public int getX() {
-
         return x;
     }
 
@@ -48,11 +47,14 @@ public class Coordinate {
      */
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Coordinate that = (Coordinate)o;
-        return getX() == that.getX() &&
-                   getY() == that.getY();
+        return getX() == that.getX() && getY() == that.getY();
     }
 
     /**

@@ -82,6 +82,11 @@ public class Rover {
         return currentPosition;
     }
 
+    /**
+     * Get the string containing the current location and heading.
+     *
+     * @return the string containing the current location and heading
+     */
     @Override
     public String toString() {
         return String.format("%s %s %s", currentPosition.getX(), currentPosition.getY(), currentDirection.toString());
