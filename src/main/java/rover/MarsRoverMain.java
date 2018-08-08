@@ -52,7 +52,6 @@ public final class MarsRoverMain {
             System.exit(1);
         }
 
-
         String fileName = cmdLine.getOptionValue("f");
         MarsRoverMain me = new MarsRoverMain(fileName);
         List<String> results = null;
@@ -89,7 +88,6 @@ public final class MarsRoverMain {
 
     private static Options getCommandLineOptions() {
         Options options = new Options();
-
         Option fileOption = Option.builder("f")
                                 .desc("the input file name")
                                 .required()
